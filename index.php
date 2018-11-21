@@ -5,13 +5,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Register</title>
+  <title>QuizUp</title>
 
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/font-awesome.css">
   <link rel="stylesheet" href="css/jquery.bxslider.css">
   <link rel="stylesheet" type="text/css" href="css/normalize.css" />
   <link rel="stylesheet" type="text/css" href="css/demo.css" />
@@ -42,60 +41,168 @@
       <div class="navbar-collapse collapse">
         <div class="menu">
           <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation"><a href="index.html">Home</a></li>
+            <li role="presentation" class="active"><a href="index.html">Home</a></li>
             <li role="presentation"><a href="services.html">Quizzes</a></li>
             <li role="presentation"><a href="blog.html">About</a></li>
             <li role="presentation"><a href="contact.html">Contact</a></li>
-            <li role="presentation" class="active"><a href="login.html">Register</a></li>
+            <li role="presentation"><a href="login.html">Log In</a></li>
           </ul>
         </div>
       </div>
     </div>
   </nav>
 
-  <section id="contact-page">
-    <div class="container">
-      <div class="center">
-        <br /><br /><br />
-        <h1>Register</h1>
-        <p>Already have an account? <a href="login.html">Login here</a></p>
-      </div>
-      <div class="row contact-wrap">
-        <div class="col-md-8 col-md-offset-2">
-          <div id="sendmessage">Your message has been sent. Thank you!</div>
-          <div id="errormessage">Email ID already exists</div>
-          
-          <form action="register.php" method="post" role="form" class="contactForm">
-            <div class="form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-              <div class="validation"></div>
-            </div>
-            <div class="form-group">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-              <div class="validation"></div>
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" name="password" id="password" placeholder="Password" data-rule="minlen:4" data-msg="Password must be of minimum length 4" />
-              <div class="validation"></div>
-            </div>
 
-            <div class="text-center"><button type="submit" class="btn btn-primary btn-lg">Register</button></div>
-          </form>
-        
+  <div class="container">
+    <div class="row">
+      <div class="slider">
+        <div class="img-responsive">
+          <ul class="bxslider">
+            <li><img src="img/01.jpg" alt="" /></li>
+            <li><img src="img/01.jpg" alt="" /></li>
+            <li><img src="img/01.jpg" alt="" /></li>
+          </ul>
         </div>
       </div>
-      <!--/.row-->
     </div>
-    <!--/.container-->
-  </section>
-  <!--/#contact-page-->
+  </div>
+
+  <!-- <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="text-center">
+          <h2>Multi Purpose Theme</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Cras suscipit arcu<br> vestibulum volutpat libero sollicitudin vitae Curabitur ac aliquam <br> lorem sit amet scelerisque justo</p>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="box">
+        <div class="col-md-4">
+          <div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.4s">
+            <h4>Responsive</h4>
+            <div class="icon">
+              <i class="fa fa-heart-o fa-3x"></i>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Cras suscipit arcu libero</p>
+            <div class="ficon">
+              <a href="#" class="btn btn-default" role="button">Read more</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.0s">
+            <h4>Multi Purpose</h4>
+            <div class="icon">
+              <i class="fa fa-desktop fa-3x"></i>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Cras suscipit arcu libero</p>
+            <div class="ficon">
+              <a href="#" class="btn btn-default" role="button">Read more</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.6s">
+            <h4>Easy Customize</h4>
+            <div class="icon">
+              <i class="fa fa-location-arrow fa-3x"></i>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Cras suscipit arcu libero</p>
+            <div class="ficon">
+              <a href="#" class="btn btn-default" role="button">Read more</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div> -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="text-center">
+          <h2>Quizzes</h2>
+          <p>Join any quiz you like and compete against others just like you!<br> Be sure to create an account before you do to ensure your progress <br> and status is maintained.
+          </p>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="grid">
+      <figure class="effect-zoe">
+        <img src="img/Space.jpg" alt="Space" />
+        <figcaption>
+          <h2><span>Galaxies</span></h2>
+          <p class="icon-links">
+            <span>10 Qs</span>
+            <span></span>
+            <span>xx Plays</span>
+          </p>
+          <p class="description">Questions will be based on various Space concepts</p>
+        </figcaption>
+      </figure>
+      <figure class="effect-zoe">
+        <img src="img/WorldCup.png" alt="WorldCup" />
+        <figcaption>
+          <h2><span>World Cup 2018</span></h2>
+          <p class="icon-links">
+            <span>12 Qs</span>
+            <span></span>
+            <span>xx Plays</span>
+          </p>
+          <p class="description">Test your World Cup knowledge</p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="grid">
+      <figure class="effect-zoe">
+        <img src="img/Maths.png" alt="Maths" />
+        <figcaption>
+          <h2><span>Mathematics</span></h2>
+          <p class="icon-links">
+            <span>20 Qs</span>
+            <span></span>
+            <span>xx Plays</span>
+          </p>
+          <p class="description">Test your Bodmas Skills</p>
+        </figcaption>
+      </figure>
+      <figure class="effect-zoe">
+        <img src="img/Cricket.jpg" alt="Cricket" />
+        <figcaption>
+          <h2><span>Cricket</span></h2>
+          <p class="icon-links">
+            <span>15 Qs</span>
+            <span></span>
+            <span>xx Plays</span>
+          </p>
+          <p class="description">Test your Cricket knowledge</p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
 
   <footer>
     <div class="inner-footer">
       <div class="container">
         <div class="row">
           <div class="col-md-4 f-about">
-            <a href="index.html"><h1><span>e</span>Nno</h1></a>
+            <a href="index.html"><h1>QuizUp</h1></a>
             <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Cras suscipit arcu libero vestibulum volutpat libero sollicitudin vitae Curabitur ac aliquam consectetur adipiscing elit Cras suscipit arcu libero
             </p>
           </div>
@@ -120,19 +227,13 @@
       </div>
     </div>
 
+
     <div class="last-div">
       <div class="container">
         <div class="row">
           <div class="copyright">
-            &copy; eNno Theme. All Rights Reserved
+            &copy; QuizUp
             <div class="credits">
-              <!--
-                All the links in the footer should remain intact. 
-                You can delete the links only if you purchased the pro version.
-                Licensing information: https://bootstrapmade.com/license/
-                Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=eNno
-              -->
-              Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
             </div>
           </div>
         </div>
@@ -148,7 +249,10 @@
           </ul>
         </div>
       </div>
+
       <a href="" class="scrollup"><i class="fa fa-chevron-up"></i></a>
+
+
     </div>
   </footer>
 
@@ -162,7 +266,9 @@
   <script src="js/jquery.bxslider.min.js"></script>
   <script type="text/javascript" src="js/fliplightbox.min.js"></script>
   <script src="js/functions.js"></script>
-  <script src="contactform/contactform.js"></script>
+  <script type="text/javascript">
+    $('.portfolio').flipLightBox()
+  </script>
 
 </body>
 
