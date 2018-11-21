@@ -29,7 +29,7 @@
 	max-width: 480px;
 	max-height: 360px;
 	width: 48%;
-	background: #3085a3;
+	background: #ffffff;
 	text-align: center;
 	cursor: pointer;
 }
@@ -39,7 +39,7 @@
 	display: block;
 	min-height: 100%;
 	max-width: 100%;
-	opacity: 0.8;
+	opacity: 1;
 }
 
 .grid figure figcaption {
@@ -1013,9 +1013,9 @@ figure.effect-zoe p.description {
 	position: absolute;
 	bottom: 8em;
 	padding: 2em;
-	color: #fff;
+	color: #05090b;
 	text-transform: none;
-	font-size: 90%;
+	font-size: 100%;
 	opacity: 0;
 	-webkit-transition: opacity 0.35s;
 	transition: opacity 0.35s;

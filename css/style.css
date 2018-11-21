@@ -39,7 +39,7 @@ a {
 }
 a:hover {
   text-decoration: none;
-  color:#36CBD4;	
+  color:#993299;	
 }
 
 hr {
@@ -149,7 +149,7 @@ a.navbar-brand span {
 	margin-bottom:30px;
 }
 .ficon i {
-	color:#36CBD4;	
+	color:#993299;	
 }
 .ficon a {
 	color:#333;
@@ -198,7 +198,7 @@ a.navbar-brand span {
 
 .btn-primary {
   padding: 8px 20px;
-  background: #36CBD4;
+  background: #993299;
   color: #fff;
   border:none;
   margin-top: 10px;
@@ -206,7 +206,7 @@ a.navbar-brand span {
 
 .btn-primary:hover, 
 .btn-primary:focus{
-  background: #36CBD4;
+  background: #993299;
   outline: none;
   box-shadow: none;
 } 
@@ -267,7 +267,7 @@ a.navbar-brand span {
 	margin-bottom:30px;
 }
 .blog .ficon a:hover {
-	color:#36CBD4;
+	color:#993299;
 }
 
 .form-search .form-control {
@@ -283,7 +283,7 @@ a.navbar-brand span {
 	margin-right:30px;
 }
 .media-body .ficon a:hover {
-	color:#36CBD4;
+	color:#993299;
 }
 .media-body h4 {
 	color:#000;
@@ -319,7 +319,7 @@ a.navbar-brand span {
 }
 .panel-default > .panel-heading {
   color: #fff;
-  background-color: #36CBD4;
+  background-color: #993299;
   border-color: #eee;
 }
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
@@ -367,7 +367,7 @@ a.navbar-brand span {
 	margin-bottom:50px;
 }
 .popular-tags h5 {
-	color:#36CBD4;
+	color:#993299;
 	margin-bottom:30px;
 	text-align:center;
 }
@@ -390,7 +390,7 @@ a.navbar-brand span {
 .popular-tags ul.tags li a:hover {
 	text-decoration:none;
 	color:#fff;
-	background-color:#36CBD4;
+	background-color:#993299;
 }
 
 /* --- Portfolio --- */
@@ -572,7 +572,7 @@ footer {
 }
 .copyright a:hover {
     text-decoration: underline;
-    color: #36CBD4;
+    color: #993299;
 }
 
 ul.social-network {
