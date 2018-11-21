@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Login</title>
+  <title>Register</title>
 
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -46,7 +46,7 @@
             <li role="presentation"><a href="services.html">Quizzes</a></li>
             <li role="presentation"><a href="blog.html">About</a></li>
             <li role="presentation"><a href="contact.html">Contact</a></li>
-            <li role="presentation" class="active"><a href="login.html">Log In</a></li>
+            <li role="presentation" class="active"><a href="login.html">Register</a></li>
           </ul>
         </div>
       </div>
@@ -57,20 +57,28 @@
     <div class="container">
       <div class="center">
         <br /><br /><br />
-        <h1>Login</h1>
-        <p>Dont' have an account? <a href="register.html">Register here</a></p>
+        <h1>Register</h1>
+        <p>Already have an account? <a href="login.html">Login here</a></p>
       </div>
       <div class="row contact-wrap">
         <div class="col-md-8 col-md-offset-2">
           <div id="sendmessage">Your message has been sent. Thank you!</div>
           <div id="errormessage"></div>
-          <form action="login.php" method="post" role="form" class="contactForm">
+          <form action="" method="post" role="form" class="contactForm">
+            <div class="form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+              <div class="validation"></div>
+            </div>
             <div class="form-group">
               <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
               <div class="validation"></div>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control" name="subject" id="subject" placeholder="Password" data-rule="minlen:4" data-msg="Incorrect password" />
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+              <div class="validation"></div>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
               <div class="validation"></div>
             </div>
 
