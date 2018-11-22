@@ -42,11 +42,11 @@
       <div class="navbar-collapse collapse">
         <div class="menu">
           <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation"><a href="index.html">Home</a></li>
-            <li role="presentation" class="active"><a href="quizzes.html">Quizzes</a></li>
-            <li role="presentation"><a href="about.html">About</a></li>
-            <li role="presentation"><a href="contact.html">Contact</a></li>
-            <li role="presentation"><a href="login.html">Log In</a></li>
+            <li role="presentation" class="active"><a href="{{ url_for('home') }}">Home</a></li>
+            <li role="presentation"><a href="{{ url_for('quizzes') }}">Quizzes</a></li>
+            <li role="presentation"><a href="{{ url_for('about_us') }}">About</a></li>
+            <li role="presentation"><a href="{{ url_for('contact_us') }} ">Contact</a></li>
+            <li role="presentation"><a href="{{ url_for('login') }}">Log In</a></li>
           </ul>
         </div>
       </div>
