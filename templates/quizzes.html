@@ -37,7 +37,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-        <a class="navbar-brand" href="{{ url_for('home') }}"><span>QuizUp</span></a>
+        <a class="navbar-brand" href="{{ url_for('home') }}"><span>Welcome to QuizUp{{user_name}}</span></a>
       </div>
       <div class="navbar-collapse collapse">
         <div class="menu">
@@ -46,7 +46,7 @@
             <li role="presentation" class="active"><a href="{{ url_for('quizzes') }}">Quizzes</a></li>
             <li role="presentation"><a href="{{ url_for('about_us') }}">About</a></li>
             <li role="presentation"><a href="{{ url_for('contact_us') }} ">Contact</a></li>
-            <li role="presentation"><a href="{{ url_for('login') }}">Log In</a></li>
+            <li role="presentation"><a href="{{ url_for('login') }}">{{log_status}}</a></li>
           </ul>
         </div>
       </div>
@@ -78,7 +78,11 @@
               <img src="../static/img/Space.jpg" alt="Space" height="100" width="100" />
             <p>Test yourself on common questions about the Galaxy</p>
             <div class="ficon">
-              <a href="#" class="btn btn-default" role="button" id="galaxies">Take Quiz</a>
+              <form action="{{ url_for('quiz') }}" method="post" role="form" class="contactForm" name="galaxies">
+                <input type="hidden" name="quizName" id="quizName" value="galaxies" />
+                <input type="submit" class="btn btn-default" value="Take Quiz" />
+                <!-- <a href="{{ url_for('quiz') }}" class="btn btn-default" role="button" id="worldCup">Take Quiz</a> -->
+              </form>
             </div>
           </div>
         </div>
@@ -89,7 +93,11 @@
               <img src="../static/img/WorldCup.png" alt="WorldCup" height="100" width="100" />
             <p>Test yourself on common questions about the Football World Cup 2018</p>
             <div class="ficon">
-              <a href="#" class="btn btn-default" role="button" id="worldCup">Take Quiz</a>
+              <form action="{{ url_for('quiz') }}" method="post" role="form" class="contactForm" name="worldCup">
+                <input type="hidden" name="quizName" id="quizName" value="worldCup" />
+                <input type="submit" class="btn btn-default" value="Take Quiz" />
+                <!-- <a href="{{ url_for('quiz') }}" class="btn btn-default" role="button" id="worldCup">Take Quiz</a> -->
+              </form>
             </div>
           </div>
         </div>
@@ -100,7 +108,11 @@
               <img src="../static/img/Maths.png" alt="Maths" height="100" width="100" />
             <p>Test yourself on common BODMAS questions</p>
             <div class="ficon">
-              <a href="#" class="btn btn-default" role="button" id="maths">Take Quiz</a>
+              <form action="{{ url_for('quiz') }}" method="post" role="form" class="contactForm" name="maths">
+                <input type="hidden" name="quizName" id="quizName" value="maths" />
+                <input type="submit" class="btn btn-default" value="Take Quiz" />
+                <!-- <a href="{{ url_for('quiz') }}" class="btn btn-default" role="button" id="worldCup">Take Quiz</a> -->
+              </form>
             </div>
           </div>
         </div>
@@ -111,7 +123,11 @@
               <img src="../static/img/Cricket.jpg" alt="Cricket" height="100" width="100" />
             <p>Test yourself on common questions about Circket</p>
             <div class="ficon">
-              <a href="#" class="btn btn-default" role="button" id="cricket">Take Quiz</a>
+              <form action="{{ url_for('quiz') }}" method="post" role="form" class="contactForm" name="cricket">
+                <input type="hidden" name="quizName" id="quizName" value="cricket" />
+                <input type="submit" class="btn btn-default" value="Take Quiz" />
+                <!-- <a href="{{ url_for('quiz') }}" class="btn btn-default" role="button" id="worldCup">Take Quiz</a> -->
+              </form>
             </div>
           </div>
         </div>
@@ -123,7 +139,11 @@
             <img src="../static/img/customQuiz.png" alt="customQuiz" height="100" width="100" />
           <p>Create your own custom quiz</p>
           <div class="ficon">
-            <a href="#" class="btn btn-default" role="button" id="customQuiz">Create Quiz</a>
+            <form action="{{ url_for('quiz') }}" method="post" role="form" class="contactForm" name="create">
+                <input type="hidden" name="create" id="quizName" value="create" />
+                <input type="submit" class="btn btn-default" value="Create Quiz" />
+                <!-- <a href="{{ url_for('quiz') }}" class="btn btn-default" role="button" id="worldCup">Take Quiz</a> -->
+              </form>
           </div>
         </div>
       </div>

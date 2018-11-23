@@ -93,17 +93,17 @@ def validate_users(email : str, password : str) -> str:
     :param password: user's password, e.g. howareyou
     :return: returns user_id if email and password matches. Else return string stating invalid
     """
-    query = "select user_id from users where email='" + email + "' and password='" + password + "'";
+    query = "SELECT user_id, name FROM users WHERE email='" + email + "' and password='" + password + "'";
     res = _execute_query(query)
     print("return value ",res)
     if res in none_list:
         logging.info("User not present")
         return "invalid"
     else:
-        return res[0][0]
+        return res[0]
 
 
-def register_users(name : str == "", email : str, password: str) -> bool:
+def register_users(name : str == "", email: str, password: str) -> bool:
     """
     Adds user's in database
     :param name : name of the user e.g. Mathur Villa
@@ -117,10 +117,41 @@ def register_users(name : str == "", email : str, password: str) -> bool:
     res = _execute_query(query)
 
     if res in none_list:
-        logging.info("User Already present")
+        logging.info("User already present")
         return False
     else:
         return True
 
+def get_user(user_id : str):
+    """
+    Gets user name given then user's ID
+    :param user_id: gives us of the user e.g. u_AbcD
+    """
+    query = "SELECT name FROM users WHERE user_id='" + user_id + "'"
+    res = _execute_query(query)
+    print("return value", res)
+    if res in none_list:
+        logging.info("User does not exist")
+        return "invalid"
+    else:
+        return res[0][0]
+
+
+def get_questions(quiz_id : str):
+    """
+    Gets all questions of a particular quiz
+    :param quiz_id: gives us the quiz the user wants to take
+    """
+    query = "SELECT * FROM question WHERE quiz_id='" + quiz_id + "'"
+    res = _execute_query(query)
+    print("\n\n\n\n\n\n\n\nreturn value", res)
+    if res in none_list:
+        logging.info("No questions")
+        return "invalid"
+    else:
+        return res
+
+
 if(__name__ == "__main__"):
     print("Ready")
+

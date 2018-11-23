@@ -58,6 +58,19 @@ a.navbar-brand span {
 	font-size:35px;	
 }
 
+.navbar-user {
+  float: left;
+  height: 50px;
+  padding: 15px 15px;
+  font-size: 30px;
+  line-height: 20px;
+}
+
+a.navbar-user span {
+  color:#fff;
+  font-size:25px; 
+}
+
 .navbar-collapse {
 	float:right;
 	padding-right: 15px;
