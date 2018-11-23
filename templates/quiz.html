@@ -172,6 +172,30 @@
         var answer;
         var points;
 
+        // COUNTDOWN TIMER CODE BEGINS HERE
+        additions = document.getElementById("additions");
+        wrapper = document.createElement("div");
+        wrapper.setAttribute("style", "z-index:2; position:absolute; top:125px");
+        wrapper.setAttribute("class", "wrapper");
+        wrapper.setAttribute("id", "wrapper");
+        countdown = document.createElement("div");
+        countdown.setAttribute("style", "z-index:2; position:absolute; top:125px");
+        countdown.setAttribute("class", "countdown");
+        countdown.setAttribute("id", "countdown");
+        wrapper.appendChild(countdown);
+        additions.appendChild(wrapper);
+
+        rm_countdown = function(){
+          additions = document.getElementById("additions");
+          wrapper = document.getElementById("wrapper");
+          countdown = document.getElementById("countdown");
+          wrapper.removeChild(countdown);
+          additions.removeChild(wrapper);
+        }
+
+        setTimeout(rm_countdown, 4000);
+        // COUNTDOWN TIMER CODE ENDS HERE
+
         update_ques = function(ques){
           if(ques<num_qs){
             question_row = resJSON[ques];
