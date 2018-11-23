@@ -77,7 +77,7 @@ def connect_db():
     Connects to the postgres database
     :return: postgres connection object
     """
-    # connect_str = "dbname='quizup' user='sood' host='localhost' password='sood'"
+    connect_str = "dbname='quizup' user='sood' host='localhost' password='sood'"
     # connect_str = "dbname='quizup' user='postgres' host='localhost' password='welcomeback'"
     # connect_str = "dbname='quizup' user='postgres' host='localhost' password='postgres'"
 
@@ -150,6 +150,20 @@ def get_questions(quiz_id : str):
     print("\n\n\n\n\n\n\n\nreturn value", res)
     if res in none_list:
         logging.info("No questions")
+        return "invalid"
+    else:
+        return res
+
+def get_num_questions(quiz_id : str):
+    """
+    Get the number of questions in that quiz
+    :param quiz_id: gives us the quiz the user wants to take
+    """
+    query = "SELECT num_questions FROM quiz WHERE quiz_id='" + quiz_id + "'"
+    res = _execute_query(query)
+    print('return value', res)
+    if res in none_list:
+        logging.info("No quiz")
         return "invalid"
     else:
         return res

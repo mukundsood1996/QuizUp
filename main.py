@@ -117,8 +117,11 @@ def question():
     quiz_id = request.args.get('quiz', 0)
 
     questions = db.get_questions(quiz_id)
+    num_questions = db.get_num_questions(quiz_id)
 
-    return (jsonify(questions))
+    all_info = questions + num_questions
+
+    return (jsonify(all_info))
 
 
 if __name__ == "__main__":

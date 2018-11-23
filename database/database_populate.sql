@@ -66,13 +66,13 @@ INSERT INTO question VALUES('q_ma01', '5+6', '{"11","18","7","8"}', '11', 'qz_ma
 	('q_gl19', 'How many galaxies exist within 1 billion light years of ours?', '{"6","11","12","2"}', '2', 'qz_galx', '3', '10', '8'),
 	('q_gl20', 'How many galaxies exist within 1 billion light years of ours?', '{"6","11","12","2"}', '2', 'qz_galx', '3', '10', '8'),
 
-	('q_wc01', 'Who won the Footbal World Cup 2018', '{"France","Germany","Argentina","Croatia"}', 'France', 'qz_wc18', '1', '10', '2'),
-	('q_wc02', 'Who won the Footbal World Cup 2018', '{"France","Germany","Argentina","Croatia"}', 'France', 'qz_wc18', '1', '10', '2'),
-	('q_wc03', 'Who won the Footbal World Cup 2018', '{"France","Germany","Argentina","Croatia"}', 'France', 'qz_wc18', '1', '10', '2'),
-	('q_wc04', 'Who won the Footbal World Cup 2018', '{"France","Germany","Argentina","Croatia"}', 'France', 'qz_wc18', '1', '10', '2'),
-	('q_wc05', 'Who won the Footbal World Cup 2018', '{"France","Germany","Argentina","Croatia"}', 'France', 'qz_wc18', '1', '10', '2'),
-	('q_wc06', 'Who won the Footbal World Cup 2018', '{"France","Germany","Argentina","Croatia"}', 'France', 'qz_wc18', '1', '10', '2'),
-	('q_wc07', 'Who won the Footbal World Cup 2018', '{"France","Germany","Argentina","Croatia"}', 'France', 'qz_wc18', '1', '10', '2'),
+	('q_wc01', 'Who won the Footbal World Cup 2018?', '{"France","Germany","Argentina","Croatia"}', 'France', 'qz_wc18', '1', '10', '2'),
+	('q_wc02', 'Who won the Footbal World Cup 2018?', '{"France","Germany","Argentina","Croatia"}', 'France', 'qz_wc18', '1', '10', '2'),
+	('q_wc03', 'Who won the Footbal World Cup 2018?', '{"France","Germany","Argentina","Croatia"}', 'France', 'qz_wc18', '1', '10', '2'),
+	('q_wc04', 'Who won the Footbal World Cup 2018?', '{"France","Germany","Argentina","Croatia"}', 'France', 'qz_wc18', '1', '10', '2'),
+	('q_wc05', 'Who won the Footbal World Cup 2018?', '{"France","Germany","Argentina","Croatia"}', 'France', 'qz_wc18', '1', '10', '2'),
+	('q_wc06', 'Who won the Footbal World Cup 2018?', '{"France","Germany","Argentina","Croatia"}', 'France', 'qz_wc18', '1', '10', '2'),
+	('q_wc07', 'Who won the Footbal World Cup 2018?', '{"France","Germany","Argentina","Croatia"}', 'France', 'qz_wc18', '1', '10', '2'),
 	('q_wc08', 'Which of the following was a Semi Finalist?', '{"Croatia","Germany","Zimbabwe","Ghana"}', 'Croatia', 'qz_wc18', '2', '10', '5'),
 	('q_wc09', 'Which of the following was a Semi Finalist?', '{"Croatia","Germany","Zimbabwe","Ghana"}', 'Croatia', 'qz_wc18', '2', '10', '5'),
 	('q_wc10', 'Which of the following was a Semi Finalist?', '{"Croatia","Germany","Zimbabwe","Ghana"}', 'Croatia', 'qz_wc18', '2', '10', '5'),
@@ -108,4 +108,3 @@ INSERT INTO question VALUES('q_ma01', '5+6', '{"11","18","7","8"}', '11', 'qz_ma
 	('q_cr19', 'Who is the #1 ODI All-Rounder in the world?', '{"Mohammad Nabi","Rashid Khan","Shakib Al Hasan","Mohammad Hafeez"}', 'Rashid Khan', 'qz_cric', '3', '10', '8'),
 	('q_cr20', 'Who is the #1 ODI All-Rounder in the world?', '{"Mohammad Nabi","Rashid Khan","Shakib Al Hasan","Mohammad Hafeez"}', 'Rashid Khan', 'qz_cric', '3', '10', '8');
 
-	
