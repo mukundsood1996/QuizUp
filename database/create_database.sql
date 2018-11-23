@@ -15,6 +15,7 @@ CREATE TABLE question(
     question_id varchar(50) PRIMARY KEY,
     question_statement varchar(500) NOT NULL ,
     options varchar(50) array[4] NOT NULL ,
+    answer varchar(50) NOT NULL,
     quiz_id varchar(50) REFERENCES quiz(quiz_id),
     difficulty integer NOT NULL ,
     time_to_solve integer NOT NULL ,
