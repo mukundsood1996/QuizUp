@@ -117,34 +117,35 @@ def question():
     quiz_id = request.args.get('quiz', 0)
 
     questions = db.get_questions(quiz_id)
+    num_questions = db.get_num_questions(quiz_id)
 
-    return (jsonify(questions))
+    all_info = questions + num_questions
+
+    return (jsonify(all_info))
 
 @app.route("/pass_score/<score>", methods = ['GET'])
 def pass_score(score):
+
     user_name = db.get_user_name(session['user_id'])
-    request_data = {
-        'quiz_id' : session['quiz_id'],
-        'user_id' : session['user_id'],
-        'score' : score
-    }
-    response = db.get_leaderboard(**request_data)
+    response = db.get_leaderboard(session['quiz_id'])
     if(len(response) < db.users_per_quiz_per_leaderboard or
             (response[db.users_per_quiz_per_leaderboard - 1 ][1] < score and
               user_name not in [i[0] for i in response]) ):
+        request_data = {
+            'quiz_id': session['quiz_id'],
+            'user_id': session['user_id'],
+            'score': score
+        }
         response = db.update_leaderboard(**request_data)
         if(response):
             return True
 
 @app.route("/poll_leaderboard", methods = ['Get','Post'])
 def poll_leaderboard():
-    request_data = {
-        'quiz_id': session['quiz_id'],
-        'user_id': session['user_id'],
-    }
-    response = db.get_leaderboard(**request_data)
+
+    response = db.get_leaderboard(session['quiz_id'])
     while(True):
-        new_response = db.get_leaderboard(**request_data)
+        new_response = db.get_leaderboard(session['quiz_id'])
         if(response != new_response):
             return new_response
 

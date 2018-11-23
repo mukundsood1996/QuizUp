@@ -80,7 +80,7 @@
             <div class="ficon">
               <form action="{{ url_for('quiz') }}" method="post" role="form" class="contactForm" name="galaxies">
                 <input type="hidden" name="quizName" id="quizName" value="galaxies" />
-                <input type="submit" class="btn btn-default" value="Take Quiz" />
+                <input type="submit" class="btn" value="Take Quiz" />
                 <!-- <a href="{{ url_for('quiz') }}" class="btn btn-default" role="button" id="worldCup">Take Quiz</a> -->
               </form>
             </div>
@@ -95,7 +95,7 @@
             <div class="ficon">
               <form action="{{ url_for('quiz') }}" method="post" role="form" class="contactForm" name="worldCup">
                 <input type="hidden" name="quizName" id="quizName" value="worldCup" />
-                <input type="submit" class="btn btn-default" value="Take Quiz" />
+                <input type="submit" class="btn" value="Take Quiz" />
                 <!-- <a href="{{ url_for('quiz') }}" class="btn btn-default" role="button" id="worldCup">Take Quiz</a> -->
               </form>
             </div>
@@ -104,13 +104,13 @@
 
         <div class="col-md-3">
           <div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.6s">
-            <h4>Mathematics</h4>
+            <h4>BODMAS</h4>
               <img src="../static/img/Maths.png" alt="Maths" height="100" width="100" />
             <p>Test yourself on common BODMAS questions</p>
             <div class="ficon">
               <form action="{{ url_for('quiz') }}" method="post" role="form" class="contactForm" name="maths">
                 <input type="hidden" name="quizName" id="quizName" value="maths" />
-                <input type="submit" class="btn btn-default" value="Take Quiz" />
+                <input type="submit" class="btn" value="Take Quiz" />
                 <!-- <a href="{{ url_for('quiz') }}" class="btn btn-default" role="button" id="worldCup">Take Quiz</a> -->
               </form>
             </div>
@@ -125,25 +125,10 @@
             <div class="ficon">
               <form action="{{ url_for('quiz') }}" method="post" role="form" class="contactForm" name="cricket">
                 <input type="hidden" name="quizName" id="quizName" value="cricket" />
-                <input type="submit" class="btn btn-default" value="Take Quiz" />
+                <input type="submit" class="btn" value="Take Quiz" />
                 <!-- <a href="{{ url_for('quiz') }}" class="btn btn-default" role="button" id="worldCup">Take Quiz</a> -->
               </form>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="wow bounceIn" data-wow-offset="0" data-wow-delay="2.8s">
-          <h4>Custom Quiz</h4>
-            <img src="../static/img/customQuiz.png" alt="customQuiz" height="100" width="100" />
-          <p>Create your own custom quiz</p>
-          <div class="ficon">
-            <form action="{{ url_for('quiz') }}" method="post" role="form" class="contactForm" name="create">
-                <input type="hidden" name="create" id="quizName" value="create" />
-                <input type="submit" class="btn btn-default" value="Create Quiz" />
-                <!-- <a href="{{ url_for('quiz') }}" class="btn btn-default" role="button" id="worldCup">Take Quiz</a> -->
-              </form>
           </div>
         </div>
       </div>

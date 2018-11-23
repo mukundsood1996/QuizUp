@@ -78,7 +78,11 @@ def connect_db():
     Connects to the postgres database
     :return: postgres connection object
     """
-    connect_str = "dbname='quizup' user='postgres' host='localhost' password='welcomeback'"
+
+    connect_str = "dbname='quizup' user='sood' host='localhost' password='sood'"
+    # connect_str = "dbname='quizup' user='postgres' host='localhost' password='welcomeback'"
+    # connect_str = "dbname='quizup' user='postgres' host='localhost' password='postgres'"
+
     try:
         conn = psycopg2.connect(connect_str)
         return conn
@@ -151,7 +155,7 @@ def get_questions(quiz_id : str):
         return "invalid"
     else:
         return res
-
+    
 def get_leaderboard(quiz_id : str):
     """
     :param: quiz_id : id of the contest whose leaderboard need to be prepared
@@ -159,12 +163,12 @@ def get_leaderboard(quiz_id : str):
     """
 
     query = "select users.name, leaderboard.score from users inner join leaderboard on leaderboard.user_id=users.user_id where \
-                leaderboard.quiz_id='" + quiz_id+ "'";
+                leaderboard.quiz_id='" + quiz_id + "'";
     res = _execute_query(query)
     res = sorted(res, key=lambda element: (-element[1], element[0]))[:users_per_quiz_per_leaderboard]
     print(res)
     if res in none_list:
-        logging.info("No user took part in it");
+        logging.info("No user took part in it")
         return None
     else:
         return res
@@ -184,7 +188,6 @@ def update_leaderboard(user_id : str, quiz_id : str, score : int) -> bool:
     else:
         return True
 
-
 def get_user_name(user_id : str):
     """
     :param user_id: particular user id is passed
@@ -197,6 +200,7 @@ def get_user_name(user_id : str):
         return None
     else:
         return res[0][0]
+
 def get_quiz_names(prefix : str):
     """
     :param prefix: prefix is the string before the given name of quiz
@@ -219,6 +223,19 @@ def validate_email(email : str):
     else:
         return "valid"
 
+def get_num_questions(quiz_id : str):
+    """
+    Get the number of questions in that quiz
+    :param quiz_id: gives us the quiz the user wants to take
+    """
+    query = "SELECT num_questions FROM quiz WHERE quiz_id='" + quiz_id + "'"
+    res = _execute_query(query)
+    print('return value', res)
+    if res in none_list:
+        logging.info("No quiz")
+        return "invalid"
+    else:
+        return res
+
 if(__name__ == "__main__"):
     print("Ready")
-    get_leaderboard('c_ABCD')
