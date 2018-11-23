@@ -79,12 +79,9 @@ def connect_db():
     :return: postgres connection object
     """
 
-    """
-    connect_str = "dbname='quizup' user='sood' host='localhost' password='sood'"
-    # connect_str = "dbname='quizup' user='postgres' host='localhost' password='welcomeback'"
-    # connect_str = "dbname='quizup' user='postgres' host='localhost' password='postgres'"
-	"""
-	
+	connect_str = "dbname='quizup' user='postgres' host='localhost' password='postgres'"
+
+
     try:
         conn = psycopg2.connect(connect_str)
         return conn
