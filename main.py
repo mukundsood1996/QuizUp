@@ -155,7 +155,7 @@ def get_quiz_names(prefix):
     if(response):
         return render_template("quiz.html", quiz = response)
 
-@app.route("/validate_email/<email_id>",method = ["POST"])
+@app.route("/validate_email/<email_id>", methods = ["POST"])
 def validate_email(email_id):
     response = db.validate_email(email_id)
     render_template("login.html", message = response)
