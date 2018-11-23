@@ -12,11 +12,11 @@ CREATE TABLE quiz(
 );
 
 CREATE TABLE question(
-	question_id varchar(50) PRIMARY KEY,
-	question_statement varchar(500) NOT NULL ,
-	options varchar(50) array[4] NOT NULL ,
-	quiz_id varchar(50) REFERENCES quiz(quiz_id),
-	difficulty integer NOT NULL ,
+    question_id varchar(50) PRIMARY KEY,
+    question_statement varchar(500) NOT NULL ,
+    options varchar(50) array[4] NOT NULL ,
+    quiz_id varchar(50) REFERENCES quiz(quiz_id),
+    difficulty integer NOT NULL ,
     time_to_solve integer NOT NULL ,
     points integer NOT NULL
 );
@@ -29,6 +29,12 @@ CREATE TABLE users(
 );
 
 CREATE TABLE leaderboard(
-  user_id varchar(50) REFERENCES users(user_id),
-  points integer
+    user_id varchar(50) REFERENCES users(user_id),
+    points integer
 );
+
+CREATE TABLE multiplayer(
+    game_id varchar(50) PRIMARY KEY,
+    quiz_id varchar(50) REFERENCES quiz(quiz_id)
+);
+    
