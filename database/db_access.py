@@ -15,6 +15,7 @@ from random import choice
 import psycopg2
 
 none_list = ['None', None, False, {}, [], set(), 'null', 'NULL', 0, "0", tuple(), (None,)]
+users_per_quiz_per_leaderboard = 4
 
 def random_alnum(prefix: str = "", length: int = 4) -> str:
     """
@@ -77,7 +78,7 @@ def connect_db():
     Connects to the postgres database
     :return: postgres connection object
     """
-    connect_str = "dbname='quizup' user='sood' host='localhost' password='sood'"
+    connect_str = "dbname='quizup' user='postgres' host='localhost' password='welcomeback'"
     try:
         conn = psycopg2.connect(connect_str)
         return conn
@@ -151,7 +152,73 @@ def get_questions(quiz_id : str):
     else:
         return res
 
+def get_leaderboard(quiz_id : str):
+    """
+    :param: quiz_id : id of the contest whose leaderboard need to be prepared
+    :return: returns the leaderboard of the present quiz
+    """
+
+    query = "select users.name, leaderboard.score from users inner join leaderboard on leaderboard.user_id=users.user_id where \
+                leaderboard.quiz_id='" + quiz_id+ "'";
+    res = _execute_query(query)
+    res = sorted(res, key=lambda element: (-element[1], element[0]))[:users_per_quiz_per_leaderboard]
+    print(res)
+    if res in none_list:
+        logging.info("No user took part in it");
+        return None
+    else:
+        return res
+
+def update_leaderboard(user_id : str, quiz_id : str, score : int) -> bool:
+    """
+    :param user_id: particular user score updated 
+    :param quiz_id: quiz_id for a particular quiz
+    :param score: cumulative score for this user for this quiz
+    :return: returns true if the score is updated. Else returns false
+    """
+    query = "update leaderboard set score='" + str(score)+ "' where quiz_id='" + quiz_id + "' and user_id='" + user_id + "';"
+    res = _execute_query(query)
+    if res in none_list:
+        logging.info("no such user or quiz available ")
+        return False
+    else:
+        return True
+
+
+def get_user_name(user_id : str):
+    """
+    :param user_id: particular user id is passed
+    :return: returns name for that user_id given in the parameter
+    """
+    query = "select name from users where user_id='" + user_id + "';"
+    res = _execute_query(query)
+    if res in none_list:
+        logging.info("no such user available");
+        return None
+    else:
+        return res[0][0]
+def get_quiz_names(prefix : str):
+    """
+    :param prefix: prefix is the string before the given name of quiz
+    :return: Returns all the rows where quiz name which starts with given prefix
+    """
+    query = "select * from quiz where name like '" + prefix + "%';"
+    res = _execute_query(query)
+    if res in none_list:
+        logging.info("no such quiz is available");
+        return None
+    else:
+        return res
+
+def validate_email(email : str):
+    query = "select count(*) from users where email='" + email + "';"
+    res = _execute_query(query)
+    if res not in none_list:
+        logging.info("email id already exists");
+        return "Email-id already exists"
+    else:
+        return "valid"
 
 if(__name__ == "__main__"):
     print("Ready")
-
+    get_leaderboard('c_ABCD')

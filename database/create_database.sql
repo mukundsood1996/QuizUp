@@ -31,11 +31,7 @@ CREATE TABLE users(
 
 CREATE TABLE leaderboard(
     user_id varchar(50) REFERENCES users(user_id),
-    points integer
+    quiz_id varchar(50) REFERENCES quiz(quiz_id),
+    score integer DEFAULT 0,
+    PRIMARY KEY (user_id, quiz_id)
 );
-
-CREATE TABLE multiplayer(
-    game_id varchar(50) PRIMARY KEY,
-    quiz_id varchar(50) REFERENCES quiz(quiz_id)
-);
-    

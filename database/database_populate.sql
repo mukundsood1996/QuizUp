@@ -107,5 +107,3 @@ INSERT INTO question VALUES('q_ma01', '5+6', '{"11","18","7","8"}', '11', 'qz_ma
 	('q_cr18', 'Who is the #1 ODI All-Rounder in the world?', '{"Mohammad Nabi","Rashid Khan","Shakib Al Hasan","Mohammad Hafeez"}', 'Rashid Khan', 'qz_cric', '3', '10', '8'),
 	('q_cr19', 'Who is the #1 ODI All-Rounder in the world?', '{"Mohammad Nabi","Rashid Khan","Shakib Al Hasan","Mohammad Hafeez"}', 'Rashid Khan', 'qz_cric', '3', '10', '8'),
 	('q_cr20', 'Who is the #1 ODI All-Rounder in the world?', '{"Mohammad Nabi","Rashid Khan","Shakib Al Hasan","Mohammad Hafeez"}', 'Rashid Khan', 'qz_cric', '3', '10', '8');
-
-	

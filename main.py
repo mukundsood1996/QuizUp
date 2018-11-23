@@ -120,6 +120,46 @@ def question():
 
     return (jsonify(questions))
 
+@app.route("/pass_score/<score>", methods = ['GET'])
+def pass_score(score):
+    user_name = db.get_user_name(session['user_id'])
+    request_data = {
+        'quiz_id' : session['quiz_id'],
+        'user_id' : session['user_id'],
+        'score' : score
+    }
+    response = db.get_leaderboard(**request_data)
+    if(len(response) < db.users_per_quiz_per_leaderboard or
+            (response[db.users_per_quiz_per_leaderboard - 1 ][1] < score and
+              user_name not in [i[0] for i in response]) ):
+        response = db.update_leaderboard(**request_data)
+        if(response):
+            return True
+
+@app.route("/poll_leaderboard", methods = ['Get','Post'])
+def poll_leaderboard():
+    request_data = {
+        'quiz_id': session['quiz_id'],
+        'user_id': session['user_id'],
+    }
+    response = db.get_leaderboard(**request_data)
+    while(True):
+        new_response = db.get_leaderboard(**request_data)
+        if(response != new_response):
+            return new_response
+
+@app.route("/get_quiz_names/<prefix>", methods = ['GET'])
+def get_quiz_names(prefix):
+    response = db.get_quiz_names(prefix)
+    if(response):
+        return render_template("quiz.html", quiz = response)
+
+@app.route("/validate_email/<email_id>",method = ["POST"])
+def validate_email(email_id):
+    response = db.validate_email(email_id)
+    render_template("login.html", message = response)
+
+
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug = True, threaded = True)
