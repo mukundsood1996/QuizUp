@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, url_for, flash, session, jsonify
 from werkzeug.utils import redirect
 import database.db_access as db
+import json
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '59d3ca27e6701d3fd06eb960ca5866a5'
@@ -124,8 +125,10 @@ def question():
     return (jsonify(all_info))
 
 
-@app.route("/pass_score/<score>", methods=['GET'])
-def pass_score(score):
+@app.route("/pass_score", methods=['GET'])
+def pass_score():
+    print("Passing Score")
+    score = request.args.get('score', 0)
     user_name = db.get_user_name(session['user_id'])
     response = db.get_leaderboard(session['quiz_id'])
     if (len(response) < db.users_per_quiz_per_leaderboard or
@@ -136,18 +139,25 @@ def pass_score(score):
             'user_id': session['user_id'],
             'score': score
         }
+        print("Hellllll")
         response = db.update_leaderboard(**request_data)
         if (response):
-            return True
+            return "True"
+    return "False"
 
 
-@app.route("/poll_leaderboard", methods=['Get', 'Post'])
+@app.route("/poll_leaderboard", methods=['GET', 'POST'])
 def poll_leaderboard():
+    print("Polling")
     response = db.get_leaderboard(session['quiz_id'])
+    response = dict(response)
     while (True):
         new_response = db.get_leaderboard(session['quiz_id'])
-        if (response != new_response):
-            return new_response
+        new_response = dict(new_response)
+        shared_items = {k: new_response[k] for k in new_response if k in response and new_response[k] == response[k]}
+        if (len(shared_items) > 0):
+            print(jsonify(new_response))
+            return jsonify(new_response)
 
 
 @app.route("/get_quiz_names/<prefix>", methods=['GET'])
@@ -164,6 +174,25 @@ def validate_email():
     response = db.validate_email(request_data)
     print(response)
     return (jsonify(response))
+
+@app.route("/recommend", methods = ["GET"])
+def get_recommendations():
+    request_data = request.args.get('quiz_name', 0)
+    from gensim.test.utils import datapath, get_tmpfile
+    from gensim.models import KeyedVectors
+
+    glove_file = datapath('/home/mathuryash5/7th Sem/Web Technologies - II/QuizUp/trained_model/glove.6B.50d.txt')
+    tmp_file = get_tmpfile("word2vec_50d.txt")
+    # calling glove2word2vec script
+    from gensim.scripts.glove2word2vec import glove2word2vec
+    glove2word2vec(glove_file, tmp_file)
+
+    model = KeyedVectors.load_word2vec_format(tmp_file)
+
+
+    res = model.most_similar(request_data, topn=10, restrict_vocab=None)
+
+    return jsonify(res)
 
 
 if __name__ == "__main__":

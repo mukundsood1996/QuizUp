@@ -57,13 +57,12 @@
     </div>
     <div class="leaderboard col-md-4 col-md-offset-1" style="margin-right:20px;">
       <h2>Leaderboard <br><small>{{quiz_name}}</small></h2>
-      <ol>
-        <li><span class="name">React</span><span class="percent">74%</span></li>
-        <li><span class="name">Vue</span><span class="percent">49%</span></li>
-        <li><span class="name">Angular 2</span><span class="percent">45%</span></li>
-        <li><span class="name">Angular</span><span class="percent">27%</span></li>
-        <li><span class="name">Ember</span><span class="percent">26%</span></li>
-        <li><span class="name">Backbone</span><span class="percent">20%</span></li>
+      <ol id="long-pol-res">
+        <li><span class="name" id="lb1"></span><span class="percent" id="sc1"></span></li>
+        <li><span class="name" id="lb2"></span><span class="percent" id="sc1"></span></li>
+        <li><span class="name" id="lb3"></span><span class="percent" id="sc1"></span></li>
+        <li><span class="name" id="lb4"></span><span class="percent" id="sc1"></span></li>
+        <li><span class="name" id="lb5"></span><span class="percent" id="sc1"></span></li>
       </ol>
       <!-- <p><small>Front-End Frameworks 2016</small></p> -->
     </div>  
@@ -205,13 +204,14 @@
       document.querySelector("#optn4").innerHTML = question_row[2][3];
       }
       else{
-      document.querySelector("#question").innerHTML = "Your Final Score is: " + score.toString();
-      options = document.getElementById("options");
-      
-      function clearInner(node) {
-        while (node.hasChildNodes()) {
-        clear(node.firstChild);
-        }
+      	  	
+	      document.querySelector("#question").innerHTML = "Your Final Score is: " + score.toString();
+	      options = document.getElementById("options");
+	      
+	      function clearInner(node) {
+	        while (node.hasChildNodes()) {
+	        clear(node.firstChild);
+	        }
       }
 
       function clear(node) {
@@ -235,17 +235,22 @@
 
     function checkAnswer(ele) {
       console.log("CHECK ANSWER", answer);
-
+	var xhr = new XMLHttpRequest()
       if(ele.innerHTML === answer){
       ele.classList.add("correct");
       score = score + points;       // This is where the score gets updated
       console.log("SCORE", score);
       console.log("QUES_SCORE", points);
+      xhr.open("GET", "/pass_score?score=" + score, true)
+      xhr.send();            
       changeQues();
       }else {
       ele.classList.add("incorrect");
       console.log("SCORE", score);  // This is where the score gets updated
+
       console.log("QUES_SCORE", points);
+      xhr.open("GET", "/pass_score?score=" + score, true)
+      xhr.send();      
       changeQues();
       }
     }
@@ -271,7 +276,39 @@
   obj.getQuestion();
 
 
-  
+  var xhr = new XMLHttpRequest();
+  xhr.timeout = 20000;
+  xhr.onreadystatechange = function(){
+  	if(xhr.readyState == 4 && xhr.status == 200)
+  	{
+  		console.log("Leaderboard")
+  		res = xhr.responseText;
+  		resJSON = JSON.parse(res);
+  		// resJSON = resJSON.entries();
+  		console.log(typeof(resJSON));
+  		console.log(resJSON);
+
+  		// $("#long-pol-res li").remove();
+  		// for(i=0; i<resJSON.length; i++){
+  		// 	console.log(resJSON[i])
+  		// 	// var id = "id" + str(i);
+  		// }
+
+  		$("#long-pol-res li").remove();
+  		$.each(resJSON, function(key, value){
+  			$("#long-pol-res").append("<li><span class='name'>" + key + "</span><span class='percent'>" + value + "</span></li>");
+
+  		})
+  		// for(i = 0; i < res.length; i++)
+  		// 	console.log(res[i])
+	  	// xhr.open("GET", "/poll_leaderboard", true);
+  		// xhr.send();      
+  	}
+  } ;
+
+  xhr.open("GET", "/poll_leaderboard", true);
+  xhr.send();      
+
   var current_date = new Date();
   var current_time = current_date.getTime();
   var end_time = current_time + 10000;

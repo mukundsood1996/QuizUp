@@ -165,11 +165,12 @@ def get_leaderboard(quiz_id : str):
 				leaderboard.quiz_id='" + quiz_id + "'";
 	res = _execute_query(query)
 	res = sorted(res, key=lambda element: (-element[1], element[0]))[:users_per_quiz_per_leaderboard]
-	print(res)
+	# print(res)
 	if res in none_list:
 		logging.info("No user took part in it")
-		return None
+		return "No"
 	else:
+		print(res)
 		return res
 
 def update_leaderboard(user_id : str, quiz_id : str, score : int) -> bool:
@@ -179,7 +180,12 @@ def update_leaderboard(user_id : str, quiz_id : str, score : int) -> bool:
 	:param score: cumulative score for this user for this quiz
 	:return: returns true if the score is updated. Else returns false
 	"""
-	query = "update leaderboard set score='" + str(score)+ "' where quiz_id='" + quiz_id + "' and user_id='" + user_id + "';"
+	query = "select count(*) from leaderboard where user_id='" + user_id + "';"
+	res = _execute_query(query)[0][0]
+	if(res == 0):
+		query = "insert into leaderboard values('" + user_id + "','" + quiz_id + "','" + score + "');"
+	else:
+		query = "update leaderboard set score='" + str(score)+ "' where quiz_id='" + quiz_id + "' and user_id='" + user_id + "';"	
 	res = _execute_query(query)
 	if res in none_list:
 		logging.info("no such user or quiz available ")
