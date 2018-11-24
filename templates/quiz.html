@@ -81,14 +81,16 @@
 		<div class="leaderboard col-md-4" style="margin-right:20px;">
 		  <h2>Leaderboard <br><small>{{quiz_name}}</small></h2>
 		  <ol>
+		  	{% for user in leaderboard %}
+		    <li><span class="name">{{user[0]}}</span><span class="percent">{{user[1]}}</span></li>
 		    <li><span class="name">React</span><span class="percent">74%</span></li>
 		    <li><span class="name">Vue</span><span class="percent">49%</span></li>
 		    <li><span class="name">Angular 2</span><span class="percent">45%</span></li>
 		    <li><span class="name">Angular</span><span class="percent">27%</span></li>
 		    <li><span class="name">Ember</span><span class="percent">26%</span></li>
 		    <li><span class="name">Backbone</span><span class="percent">20%</span></li>
+		    {% endfor %}
 		  </ol>
-		  <!-- <p><small>Front-End Frameworks 2016</small></p> -->
 		</div>	
 	</div>
   </div>
