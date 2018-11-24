@@ -213,7 +213,26 @@ def get_quiz_names(prefix : str):
 	else:
 		return res
 
-def validate_email(email : str) -> bool :
+def get_quiz_id(name : str):
+
+	"""
+	:param name: name of the quiz
+	:return: id of the given quiz name
+	"""
+	query = "select quiz_id from quiz where name='" + name + "';"
+	res = _execute_query(query)
+	if res in none_list:
+		logging.info("no such quiz is available");
+		return None
+	else:
+		return res[0][0]
+
+def validate_email(email : str) -> bool:
+	"""
+
+	:param email: email_id of the user
+	:return: true if user already exists. Else false for if user doesn't exist
+	"""
 	print("In validate email")
 	query = "select count(*) from users where email='" + email + "';"
 	res = _execute_query(query)
@@ -240,3 +259,4 @@ def get_num_questions(quiz_id : str):
 
 if(__name__ == "__main__"):
 	print("Ready")
+	print(_execute_query("select quiz_id from quiz where name='worldCup';"))

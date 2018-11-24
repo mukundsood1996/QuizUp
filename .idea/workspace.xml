@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46161405-5ff7-40f8-b137-da915d757f1d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/css/countdown.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/questions.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/database_populate.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/database_populate.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/db_access.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/db_access.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/quiz.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/quiz.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/quizzes.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/quizzes.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +48,7 @@
           <entry key="gitignore" value="42" />
           <entry key="html" value="259" />
           <entry key="json" value="48" />
-          <entry key="py" value="6949" />
+          <entry key="py" value="7448" />
           <entry key="sql" value="861" />
         </counts>
       </usages-collector>
@@ -61,7 +57,7 @@
           <entry key="HTML" value="259" />
           <entry key="JSON" value="48" />
           <entry key="PLAIN_TEXT" value="42" />
-          <entry key="Python" value="6965" />
+          <entry key="Python" value="7464" />
           <entry key="SQL" value="861" />
         </counts>
       </usages-collector>
@@ -69,27 +65,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="165" column="42" lean-forward="true" selection-start-line="165" selection-start-column="42" selection-end-line="165" selection-end-column="42" />
-              <folding>
-                <marker date="1542999198921" expanded="true" signature="3996:5315" ph="..." />
-                <marker date="1542999198921" expanded="true" signature="5214:5315" ph="..." />
-              </folding>
+            <state relative-caret-position="330">
+              <caret line="109" selection-start-line="90" selection-end-line="109" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/db_access.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="157" column="4" lean-forward="true" selection-start-line="157" selection-start-column="4" selection-end-line="157" selection-end-column="4" />
-              <folding>
-                <marker date="1542999347730" expanded="true" signature="8052:8054" ph="..." />
-              </folding>
+            <state relative-caret-position="296">
+              <caret line="220" column="7" lean-forward="true" selection-start-line="220" selection-start-column="7" selection-end-line="220" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -97,8 +86,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/create_database.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="27" column="38" lean-forward="true" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+            <state relative-caret-position="204">
+              <caret line="13" column="22" lean-forward="true" selection-end-line="36" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -106,8 +95,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/database_populate.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" />
+            <state relative-caret-position="241">
+              <caret line="108" column="76" lean-forward="true" selection-start-line="108" selection-start-column="76" selection-end-line="108" selection-end-column="76" />
             </state>
           </provider>
         </entry>
@@ -125,7 +114,7 @@
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="4" column="21" selection-end-line="4" selection-end-column="21" />
+              <caret line="4" column="21" selection-end-line="8" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -158,6 +147,8 @@
       <find>user_id</find>
       <find>update_leaderboard</find>
       <find>get_leaderboard</find>
+      <find>quiz</find>
+      <find>get_quiz_</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -177,9 +168,9 @@
         <option value="$PROJECT_DIR$/templates/register.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/database/create_database.sql" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/database/database_populate.sql" />
         <option value="$PROJECT_DIR$/database/db_access.py" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -374,13 +365,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/register.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/register.php" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="21" selection-end-line="4" selection-end-column="21" />
+          <caret line="4" column="21" selection-end-line="8" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -393,36 +382,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/create_database.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="27" column="38" lean-forward="true" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="165" column="42" lean-forward="true" selection-start-line="165" selection-start-column="42" selection-end-line="165" selection-end-column="42" />
-          <folding>
-            <marker date="1542999198921" expanded="true" signature="3996:5315" ph="..." />
-            <marker date="1542999198921" expanded="true" signature="5214:5315" ph="..." />
-          </folding>
+        <state relative-caret-position="204">
+          <caret line="13" column="22" lean-forward="true" selection-end-line="36" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/database_populate.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
+        <state relative-caret-position="241">
+          <caret line="108" column="76" lean-forward="true" selection-start-line="108" selection-start-column="76" selection-end-line="108" selection-end-column="76" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/db_access.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="157" column="4" lean-forward="true" selection-start-line="157" selection-start-column="4" selection-end-line="157" selection-end-column="4" />
-          <folding>
-            <marker date="1542999347730" expanded="true" signature="8052:8054" ph="..." />
-          </folding>
+        <state relative-caret-position="296">
+          <caret line="220" column="7" lean-forward="true" selection-start-line="220" selection-start-column="7" selection-end-line="220" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="109" selection-start-line="90" selection-end-line="109" />
         </state>
       </provider>
     </entry>
