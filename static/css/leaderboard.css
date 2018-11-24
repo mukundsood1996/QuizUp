@@ -5,7 +5,7 @@
 }
 
 .leaderboard {
-  background-color: #123;
+  background-color: #400040;
   color: #eee;
   width: 300px;
   border-radius: 5px;
@@ -43,7 +43,7 @@
   width: 20px;
   height: 20px;
   background-color: white;
-  color: #345;
+  color: #590059;
   text-align: center;
   position: absolute;
   left: 15px;
