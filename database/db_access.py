@@ -15,6 +15,7 @@ from random import choice
 import psycopg2
 
 none_list = ['None', None, False, {}, [], set(), 'null', 'NULL', 0, "0", tuple(), (None,)]
+users_per_quiz_per_leaderboard = 4
 
 def random_alnum(prefix: str = "", length: int = 4) -> str:
 	"""
@@ -78,7 +79,7 @@ def connect_db():
 	:return: postgres connection object
 	"""
 
-	connect_str = "dbname='pricing_list' user='postgres' host='localhost' password='sood'"
+	connect_str = "dbname='quizup' user='postgres' host='localhost' password='postgres'"
 
 
 	try:
@@ -139,6 +140,99 @@ def get_user(user_id : str):
 	else:
 		return res[0][0]
 
+
+def get_questions(quiz_id : str):
+	"""
+	Gets all questions of a particular quiz
+	:param quiz_id: gives us the quiz the user wants to take
+	"""
+	query = "SELECT * FROM question WHERE quiz_id='" + quiz_id + "'"
+	res = _execute_query(query)
+	print("\n\n\n\n\n\n\n\nreturn value", res)
+	if res in none_list:
+		logging.info("No questions")
+		return "invalid"
+	else:
+		return res
+	
+def get_leaderboard(quiz_id : str):
+	"""
+	:param: quiz_id : id of the contest whose leaderboard need to be prepared
+	:return: returns the leaderboard of the present quiz
+	"""
+
+	query = "select users.name, leaderboard.score from users inner join leaderboard on leaderboard.user_id=users.user_id where \
+				leaderboard.quiz_id='" + quiz_id + "'";
+	res = _execute_query(query)
+	res = sorted(res, key=lambda element: (-element[1], element[0]))[:users_per_quiz_per_leaderboard]
+	# print(res)
+	if res in none_list:
+		logging.info("No user took part in it")
+		return "No"
+	else:
+		print(res)
+		return res
+
+def update_leaderboard(user_id : str, quiz_id : str, score : int) -> bool:
+	"""
+	:param user_id: particular user score updated 
+	:param quiz_id: quiz_id for a particular quiz
+	:param score: cumulative score for this user for this quiz
+	:return: returns true if the score is updated. Else returns false
+	"""
+	query = "select count(*) from leaderboard where user_id='" + user_id + "';"
+	res = _execute_query(query)[0][0]
+	if(res == 0):
+		query = "insert into leaderboard values('" + user_id + "','" + quiz_id + "','" + score + "');"
+	else:
+		query = "update leaderboard set score='" + str(score)+ "' where quiz_id='" + quiz_id + "' and user_id='" + user_id + "';"	
+	res = _execute_query(query)
+	if res in none_list:
+		logging.info("no such user or quiz available ")
+		return False
+	else:
+		return True
+
+def get_user_name(user_id : str):
+	"""
+	:param user_id: particular user id is passed
+	:return: returns name for that user_id given in the parameter
+	"""
+	query = "select name from users where user_id='" + user_id + "';"
+	res = _execute_query(query)
+	if res in none_list:
+		logging.info("no such user available");
+		return None
+	else:
+		return res[0][0]
+
+def get_quiz_names(prefix : str):
+	"""
+	:param prefix: prefix is the string before the given name of quiz
+	:return: Returns all the rows where quiz name which starts with given prefix
+	"""
+	query = "select * from quiz where name like '" + prefix + "%';"
+	res = _execute_query(query)
+	if res in none_list:
+		logging.info("no such quiz is available");
+		return None
+	else:
+		return res
+
+def get_quiz_id(name : str):
+
+	"""
+	:param name: name of the quiz
+	:return: id of the given quiz name
+	"""
+	query = "select quiz_id from quiz where name='" + name + "';"
+	res = _execute_query(query)
+	if res in none_list:
+		logging.info("no such quiz is available");
+		return None
+	else:
+		return res[0][0]
+
 def validate_email(email : str) -> bool:
 	"""
 
@@ -154,3 +248,21 @@ def validate_email(email : str) -> bool:
 		return True
 	else:
 		return False
+
+def get_num_questions(quiz_id : str):
+	"""
+	Get the number of questions in that quiz
+	:param quiz_id: gives us the quiz the user wants to take
+	"""
+	query = "SELECT num_questions FROM quiz WHERE quiz_id='" + quiz_id + "'"
+	res = _execute_query(query)
+	print('return value', res)
+	if res in none_list:
+		logging.info("No quiz")
+		return "invalid"
+	else:
+		return res
+
+if(__name__ == "__main__"):
+	print("Ready")
+	print(_execute_query("select quiz_id from quiz where name='worldCup';"))

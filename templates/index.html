@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NKE Group</title>
+  <title>QuizUp</title>
 
   <!-- Bootstrap -->
   <link href="../static/css/bootstrap.min.css" rel="stylesheet">
@@ -36,12 +36,13 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{ url_for('home') }}"><span>Welcome to NKE Group{{user_name}}</span></a>
+        <a class="navbar-brand" href="{{ url_for('home') }}"><span>Welcome to QuizUp{{user_name}}</span></a>
       </div>
       <div class="navbar-collapse collapse">
         <div class="menu">
           <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="{{ url_for('home') }}">Home</a></li>
+            <li role="presentation"><a href="{{ url_for('quizzes') }}">Quizzes</a></li>
             <li role="presentation"><a href="{{ url_for('login') }}">{{log_status}}</a></li>
           </ul>
         </div>
@@ -63,12 +64,100 @@
     </div>
   </div>
 
+  <div class="content">
+    <div class="grid">
+      <a href="{{ url_for('quizzes') }}">
+        <figure class="effect-zoe" id="galaxies">
+          <img src="../static/img/Space.jpg" alt="Space" />
+          <figcaption>
+            <h2><span>Galaxies</span></h2>
+            <p class="icon-links">
+              <span>10 Qs</span>
+              <span></span>
+              <span>xx Plays</span>
+            </p>
+            <p class="description">Questions will be based on various Space concepts</p>
+          </figcaption>
+        </figure>
+      </a>
+
+      <a href="{{ url_for('quizzes') }}">
+        <figure class="effect-zoe" id="worldCup">
+          <img src="../static/img/WorldCup.png" alt="WorldCup" />
+          <figcaption>
+            <h2><span>World Cup 2018</span></h2>
+            <p class="icon-links">
+              <span>12 Qs</span>
+              <span></span>
+              <span>xx Plays</span>
+            </p>
+            <p class="description">Test your World Cup knowledge</p>
+          </figcaption>
+        </figure>
+      </a>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="grid">
+        <a href="{{ url_for('quizzes') }}">
+        <figure class="effect-zoe" id="maths">
+          <img src="../static/img/Maths.png" alt="Maths" />
+          <figcaption>
+            <h2><span>Mathematics</span></h2>
+            <p class="icon-links">
+              <span>20 Qs</span>
+              <span></span>
+              <span>xx Plays</span>
+            </p>
+            <p class="description">Test your Bodmas Skills</p>
+          </figcaption>
+        </figure>
+      </a>
+
+        <a href="{{ url_for('quizzes') }}">
+        <figure class="effect-zoe" id="cricket">
+          <img src="../static/img/Cricket.jpg" alt="Cricket" />
+          <figcaption>
+            <h2><span>Cricket</span></h2>
+            <p class="icon-links">
+              <span>15 Qs</span>
+              <span></span>
+              <span>xx Plays</span>
+            </p>
+            <p class="description">Test your Cricket knowledge</p>
+          </figcaption>
+        </figure>
+      </a>
+    </div>
+  </div>
+
+<footer>
+    <div class="inner-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 f-about">
+            <a href="index.html"><h1>QuizUp</h1></a>
+            <p>QuizUp is an interactive website where users can take quizzes and compete against others who are registered on our platform. </p>
+          </div>
+          <div class="col-md-4 f-contact">
+            <h3 class="widgetheading">Stay in touch</h3>
+            <a href="#">
+              <p><i class="fa fa-envelope"></i> contact@quizup.com</p>
+            </a>
+            <p><i class="fa fa-phone"></i> 1800-QUIZUP</p>
+            <p><i class="fa fa-home"></i> QuizUp inc | PO Box 23456 QuizUp St, Bangalore <br> Karnataka India</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <div class="last-div">
       <div class="container">
         <div class="row">
           <div class="copyright">
-            &copy; NKE Group
+            &copy; QuizUp
             <div class="credits">
             </div>
           </div>
